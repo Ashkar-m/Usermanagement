@@ -1,0 +1,73 @@
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 2rem auto;
+    width: 600px; /* Adjust width for signup form */
+  }
+
+  .signup-container p {
+    margin-left: 224px;
+    color: #0f5713;
+    cursor: pointer;
+  }
+  
+  .signup-container h1 {
+    margin-bottom: 1rem;
+  }
+  
+  .signup-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 85%;
+  }
+  
+  .signup-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .signup-container input {
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem; /* Adjust margin for two rows */
+  }
+  
+  .signup-container .form-row {  /* New class for row layout */
+    display: flex;
+    justify-content: space-between; /* Distribute inputs evenly */
+    width: 100%;  /* Make row span full width */
+  }
+  
+  .signup-container .form-row input {
+    width: 85%; /* Adjust width for two inputs per row */
+    margin-bottom: 0;  /* Remove margin for proper row layout */
+  }
+  
+  .signup-container .form-row div {
+    width: 50%;
+  }
+
+  .signup-container button {
+    background-color: #000000; /* Green */
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .signup-container button:hover {
+    background-color: #45A049;
+  }
+  
