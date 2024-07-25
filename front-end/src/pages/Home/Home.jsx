@@ -8,14 +8,10 @@ function Home() {
     <div>
       <Navbar />
       <div className="home-page-container">
-        <h1>Welcome to User Management</h1>
-        <p>This application allows users to register and manage their profiles. 
-          Authorized admins can access a powerful panel to view and manage all user
-          accounts. The user interface is built with React, a popular JavaScript 
-          library known for its efficiency and component-based architecture.
-          Under the hood, Django, a high-level Python web framework, provides a robust 
-          foundation for handling server-side logic, database interactions, and user 
-          authentication.</p>
+        <h1>Welcome to Home</h1>
+        <p>This is a sample Home page.In the Top left corner you can able to see your name if you click on it you will 
+          redirect to profile page.You can able to update your profile on their.Also in Top right corner you see Logout button 
+          by clicking that you will logout and redirected to Login page.</p>
         <div className="cta-container">
         </div>
       </div>

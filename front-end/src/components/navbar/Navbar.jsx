@@ -7,14 +7,9 @@ import { Link, useLocation } from 'react-router-dom';
 const Navbar = () => {
     const dispatch = useDispatch()
     const location = useLocation()
-    // const {fullname} = useSelector(state => state.profile)
-
 
     const name = JSON.parse(localStorage.getItem('profile')).fullname
 
-    // useEffect(() => {
-    //     console.log('Profile updated:', fullname);
-    // }, [fullname]);
     
     const handleLogout = () => {
         localStorage.removeItem('ACCESS_TOKEN')

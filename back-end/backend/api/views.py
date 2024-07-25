@@ -7,6 +7,8 @@ from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, viewsets
+from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
@@ -49,61 +51,6 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
 
-
-# class ProfileViewSet(viewsets.ModelViewSet):
-#     queryset = Profile.objects.all()
-#     serializer_class = ProfileSerializer
-#     permission_classes = [AllowAny]
-
-#     def get_object(self):
-#         # Override this method to fetch profile by `uid`
-#         uid = self.kwargs.get('pk')
-#         print(uid)
-#         return Profile.objects.get(user_id=uid)
-
-#     def destroy(self, request, *args, **kwargs):
-#         instance = self.get_object()
-#         user = instance.user
-#         self.perform_destroy(instance)
-#         user.delete()
-#         return Response(status=status.HTTP_204_NO_CONTENT)
-    
-#     def perform_destroy(self, instance):
-#         instance.delete()
-
-#     def update(self, request, *args, **kwargs):
-#         print(request)
-#         partial = kwargs.pop('partial', False)
-#         instance = self.get_object()
-#         print('This is the instance', instance)
-        
-#         # Get the data to update
-#         profile_data = request.data
-#         user_data = {
-#             'username': profile_data.get('username', instance.user.username),
-#             'email': profile_data.get('email', instance.user.email),
-#         }
-        
-#         # Update User instance
-#         user_serializer = UserSerializer(instance.user, data=user_data, partial=partial)
-#         if user_serializer.is_valid():
-#             user_serializer.save()
-#         else:
-#             return Response(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-#         # Update Profile instance
-#         profile_serializer = self.get_serializer(instance, data=profile_data, partial=partial)
-#         if profile_serializer.is_valid():
-#             self.perform_update(profile_serializer)
-#             return Response(profile_serializer.data)
-#         else:
-#             return Response(profile_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-#     def perform_update(self, serializer):
-#         serializer.save()
-
-from rest_framework.parsers import MultiPartParser, FormParser
-from rest_framework.permissions import IsAuthenticated
 
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()

@@ -25,15 +25,6 @@ class UserSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError('Passwords do not match!')
         return data
 
-    def validate_email(self, value):
-        if User.objects.filter(email=value).exists():
-            raise serializers.ValidationError("Email already exists")
-        return value
-
-    def validate_username(self, value):
-        if User.objects.filter(username=value).exists():
-            raise serializers.ValidationError("Username already exists")
-        return value
 
     def create(self, validated_data):
         password = validated_data.pop('password')
@@ -82,14 +73,8 @@ class UserSerializer(serializers.ModelSerializer):
         instance.save()
 
         
-        for attr, value in validated_data.items():
-            setattr(instance, attr, value)
-        instance.save()
+        profile, created = Profile.objects.get_or_create(user=instance)
 
-        try:
-            profile = instance.user_profile
-        except Profile.DoesNotExist:
-            profile = Profile.objects.create(user=instance)
 
         if fullname:
             profile.fullname = fullname

@@ -5,7 +5,7 @@ const api = axios.create({
     baseURL: baseURL,
 })
 
-// Request interceptor to add the token to the headers
+
 api.interceptors.request.use(
     (config) => {
       const token = JSON.parse(localStorage.getItem("ACCESS_TOKEN"));
@@ -19,7 +19,7 @@ api.interceptors.request.use(
     }
   );
   
-  // Response interceptor to handle token expiration and refresh
+  
   api.interceptors.response.use(
     (response) => response,
     async (error) => {
