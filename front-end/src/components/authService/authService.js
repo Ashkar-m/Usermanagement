@@ -8,7 +8,7 @@ const baseURL='http://127.0.0.1:8000/';
 const login = async (email, password) => {
 
     try {
-        const response = await axios.post(`${baseURL}/api/token/`, {email, password})
+        const response = await axios.post(`${baseURL}/users/token/`, {email, password})
         
         if (response.status === 200) {
             const data = response.data
@@ -50,7 +50,7 @@ const login = async (email, password) => {
 
 const signUp = async (email, username, fullname, password, password2) => {
     try {
-        const response = await axios.post(`${baseURL}/api/register/`, {email, username, fullname, password, password2});
+        const response = await axios.post(`${baseURL}/u/register/`, {email, username, fullname, password, password2});
         
         if (response.status >= 200 && response.status < 300) {
             window.alert('User registered successfully');
